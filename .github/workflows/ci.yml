@@ -64,8 +64,13 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ${{ github.repository }}
+          tags: |
+            type=sha
+            type=ref,event=tag
+            type=ref,event=pr
+            type=match,pattern=v(.*),value=v1.0.0
           flavor: |
-            latest=true
+            latest=false
             prefix=debian-,onlatest=false
 
       - name: Build and push
