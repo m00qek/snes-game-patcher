@@ -1,5 +1,5 @@
 ################################### BUILDER ####################################
-FROM debian AS builder
+FROM debian:bullseye AS builder
 
 RUN apt-get update && apt-get install -y \
   build-essential \
@@ -19,7 +19,7 @@ RUN cd Flips \
   && ./make.sh
 
 ################################ FINAL RELEASE #################################
-FROM debian
+FROM debian:bullseye
 
 RUN apt-get update && apt-get install -y \
   curl \
