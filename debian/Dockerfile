@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
   python3-pip \
   unzip
 
-RUN pip install --user docopt requests
+RUN pip install docopt requests
 
 COPY --from=builder /Flips/flips              /usr/bin/flips
 COPY --from=builder asar/asar/asar-standalone /usr/bin/asar
