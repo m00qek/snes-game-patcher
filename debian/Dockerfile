@@ -26,7 +26,10 @@ RUN apt-get update && apt-get install -y \
   entr \
   git \
   make \
+  python3-pip \
   unzip
+
+RUN pip install --user docopt requests
 
 COPY --from=builder /Flips/flips              /usr/bin/flips
 COPY --from=builder asar/asar/asar-standalone /usr/bin/asar
